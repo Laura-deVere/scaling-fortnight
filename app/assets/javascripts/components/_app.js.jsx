@@ -1,12 +1,17 @@
 var App = React.createClass({
 	getInitialState(){
 		return {
+			myPlaces: [],
 			currentLocation: 'New York, NY',
 			mapCoordinates: {
 				lat: 40.748817,
 				lng: -73.985428
 			}
 		};
+	},
+
+	addLocationToPlaces(place) {
+		this.setState({ myPlaces: place})
 	},
 
 	searchLocation(location){
@@ -33,6 +38,7 @@ var App = React.createClass({
 		return (
 			<div>
 				<Search onSearch={this.searchLocation} />
+				<AddLocation address={this.state.currentLocation} addLocation={this.addLocationToPlaces} />
 				<Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
 			</div>
 		)
