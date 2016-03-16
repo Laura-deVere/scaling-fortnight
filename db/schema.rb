@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315183512) do
+ActiveRecord::Schema.define(version: 20160315192850) do
+
+  create_table "places", force: :cascade do |t|
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "visited"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +36,11 @@ ActiveRecord::Schema.define(version: 20160315183512) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
