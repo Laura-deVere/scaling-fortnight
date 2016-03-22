@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
 		if current_user
   		@places = @user.places
   	else
-  		@places = Place.last(5)
+  		@places = Place.last(12)
   	end
 		respond_to do |format|
       format.html { redirect_to root_path }

@@ -41,7 +41,7 @@ var App = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<Search onSearch={this.searchLocation} />
 				<AddLocation address={this.state.currentLocation} addLocationToPlaces={this.addLocationToPlaces} />
 				<Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />

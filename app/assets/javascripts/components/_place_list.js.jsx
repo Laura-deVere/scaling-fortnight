@@ -8,7 +8,6 @@ var PlaceList = React.createClass({
             	<Place key={index} {...place} />
             );
          })
-
 				}
 			</ul>
 		)
