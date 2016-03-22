@@ -1,7 +1,7 @@
 var App = React.createClass({
 	getInitialState(){
 		return {
-			myPlaces: [],
+			places: [],
 			currentLocation: 'New York, NY',
 			mapCoordinates: {
 				lat: 40.748817,
@@ -10,8 +10,13 @@ var App = React.createClass({
 		};
 	},
 
+	componentDidMount() {
+		$.getJSON('places.json', (response) => { this.setState({ places: response }), console.log(response)});
+	},
+
 	addLocationToPlaces(place) {
-		this.setState({ myPlaces: place})
+		var newState = this.state.places.concat(place);
+		this.setState({ places: newState })
 	},
 
 	searchLocation(location){
@@ -38,8 +43,9 @@ var App = React.createClass({
 		return (
 			<div>
 				<Search onSearch={this.searchLocation} />
-				<AddLocation address={this.state.currentLocation} addLocation={this.addLocationToPlaces} />
+				<AddLocation address={this.state.currentLocation} addLocationToPlaces={this.addLocationToPlaces} />
 				<Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
+				<PlaceList places={this.state.places} />
 			</div>
 		)
 	}

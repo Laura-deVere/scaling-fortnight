@@ -1,10 +1,23 @@
 // Place all the styles related to the page controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 #map {
-	height: 600px;
+	height: 200px;
+	width: 40%;
 }
 
+.mydiv {
+	width: 50%;
+	float: left;
+	display: inline-block;
+}
+
+.places {
+	width: 20%;
+	display: inline-block;
+}
 .search-bar {
 	width: 50%;
 	height: 30px;

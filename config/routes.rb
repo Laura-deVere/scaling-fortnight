@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :places
+  
   devise_for :users
+  resources :places
+
   root 'page#index'
 end

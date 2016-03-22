@@ -1,15 +1,16 @@
 var AddLocation = React.createClass({
-	handleSave() {
+		handleSave() {
+			var location = this.props.address;
 		$.ajax({
 			url: '/places',
-			method: 'POST',
-			data: { place: {location: this.props.address}
-			},
-			success: (place) => {
+			type: 'POST',
+			dataType: "JSON",
+			data: {place:{location: location}},
+			success:(place) => {
 				this.props.addLocationToPlaces(place);
 			}
 		})
-	},
+	}, 
 
 	render() {
 		return (
