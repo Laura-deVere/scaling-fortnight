@@ -10,7 +10,7 @@ body {
 }
 
 #map {
-	height: 600px;
+	height: 400px;
 	width: 100%;
 }
 
@@ -49,6 +49,9 @@ nav {
 }
 
 .places {
+	h3 {
+		text-align: center;
+	}
 	ul {
 		display: flex;
 		flex-direction: row;
@@ -61,7 +64,7 @@ nav {
 	}
 	li {
 		width: 275px;
-		height: 50px;
+		height: 70px;
 		border: 1px solid #73787d;
 		margin-bottom: 15px;
 		padding: 10px;
@@ -71,4 +74,5 @@ nav {
 
 .visited {
 	color: #53b6d0;
+	cursor: pointer;
 }

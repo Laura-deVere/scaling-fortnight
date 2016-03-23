@@ -1,11 +1,12 @@
 var Place = React.createClass({
 	render() {
 		return (
-			<li className="place">
-				<p>{this.props.location}                          
+			<div>
+				<p>{this.props.place.location}                          
 					<span className="glyphicon glyphicon-star-empty visited"></span>
 				</p>	
-			</li>
+				<span onClick={this.props.handleDelete.bind(this.props.place.id)}className="glyphicon glyphicon-remove-circle visited"></span>
+			</div>
 		)
 	}
 });

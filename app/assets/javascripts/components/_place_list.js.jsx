@@ -1,22 +1,25 @@
 var PlaceList = React.createClass({
-
-	renderPlaces() {
-		return (
-			<ul>
-				{this.props.places.map(function(place, index){
-            return (
-            	<Place key={index} {...place} />
-            );
-         })
-				}
-			</ul>
-		)
+	handleDelete(id) {
+		this.props.handleDelete(id);
 	},
 
 	render() {
-		return (
-			<div className="places">
-				{this.renderPlaces()}
+		var places = this.props.places.map((place) => { 
+			return ( 
+				<li className="place" key={place.id}>
+					<Place place={place}
+						handleDelete={this.handleDelete.bind(this, place.id)} />
+				</li> 
+			) 
+		}); 
+		return(
+			<div className="places"> 
+			<header>
+				<h3>Saved Places</h3>
+			</header>
+				<ul> 
+					{places} 
+				</ul> 
 			</div>
 		)
 	}

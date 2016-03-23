@@ -36,6 +36,16 @@ class PlacesController < ApplicationController
   	end
 	end
 
+	def destroy
+		@place = Place.find(params[:id])
+		@place.destroy
+		if request.xhr?
+			render :json => @place
+		else
+			redirect_to root_path
+		end
+	end
+
 	private
 
 	def place_params
