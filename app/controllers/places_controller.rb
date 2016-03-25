@@ -36,6 +36,14 @@ class PlacesController < ApplicationController
   	end
 	end
 
+	def update
+		@place = Place.find(params[:id])
+		@place.update(place_params)
+		respond_to do |format|
+      format.json { render json: @place }
+	  end
+	end
+
 	def destroy
 		@place = Place.find(params[:id])
 		@place.destroy

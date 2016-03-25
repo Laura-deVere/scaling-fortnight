@@ -1,4 +1,8 @@
 var PlaceList = React.createClass({
+	handleUpdate(place) {
+		this.props.handleUpdate(place);
+	},
+
 	handleDelete(id) {
 		this.props.handleDelete(id);
 	},
@@ -8,7 +12,8 @@ var PlaceList = React.createClass({
 			return ( 
 				<li className="place" key={place.id}>
 					<Place place={place}
-						handleDelete={this.handleDelete.bind(this, place.id)} />
+						handleDelete={this.handleDelete.bind(this, place.id)} 
+						handleUpdate={this.handleUpdate} />
 				</li> 
 			) 
 		}); 

@@ -2,7 +2,6 @@ var App = React.createClass({
 	getInitialState(){
 		return {
 			places: [],
-			visited: false,
 			currentLocation: 'New York, NY',
 			mapCoordinates: {
 				lat: 40.748817,
@@ -30,11 +29,31 @@ var App = React.createClass({
 		});
 	},
 
+	handleUpdate(place) {
+		$.ajax({
+			url: `/places/${place.id}`,
+			type: 'PUT',
+			data: { place: place },
+			success: () => {
+				this.updatePlaces(place);
+				console.log(place);
+			}
+		})
+	},
+
+	updatePlaces(place) {
+		var places = this.state.places.filter((i) => {
+			return i.id != place.id
+		});
+
+		places.push(place);
+		this.setState({ places: places });
+	},
+
 	removePlace(id) {
 		var newPlaceList = this.state.places.filter((i) => {
 			return i.id != id;
 		});
-
 		this.setState({ places: newPlaceList });
 	},
 
@@ -64,7 +83,7 @@ var App = React.createClass({
 				<Search onSearch={this.searchLocation} />
 				<AddLocation address={this.state.currentLocation} addLocationToPlaces={this.addLocationToPlaces} />
 				<Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
-				<PlaceList places={this.state.places} handleDelete={this.handleDelete} />
+				<PlaceList places={this.state.places} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate} />
 			</div>
 		)
 	}
