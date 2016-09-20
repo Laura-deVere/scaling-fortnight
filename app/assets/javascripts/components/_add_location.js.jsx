@@ -15,7 +15,8 @@ var AddLocation = React.createClass({
 	render() {
 		return (
 			<div className="search-result">
-				<h4>{this.props.address}<span className="glyphicon glyphicon-map-marker visited" onClick={this.handleSave}></span></h4>
+				<h4>{this.props.address}<span className="glyphicon glyphicon-map-marker visited" onClick={this.handleSave}>
+				Save</span></h4>
 			</div>	
 		)
 	}
