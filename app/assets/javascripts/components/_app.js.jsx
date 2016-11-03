@@ -80,10 +80,13 @@ var App = React.createClass({
 	render() {
 		return (
 			<div className="container">
-				<Search onSearch={this.searchLocation} />
+				<h1>Find Cities</h1>
 				<AddLocation address={this.state.currentLocation} addLocationToPlaces={this.addLocationToPlaces} />
-				<Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
-				<PlaceList places={this.state.places} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate} />
+				<Search onSearch={this.searchLocation} />
+				<div className="lm-container">
+					<Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} />
+					<PlaceList places={this.state.places} handleDelete={this.handleDelete} handleUpdate={this.handleUpdate} />
+				</div>
 			</div>
 		)
 	}

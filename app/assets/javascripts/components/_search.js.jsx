@@ -16,7 +16,8 @@ var Search = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div className="sb-container">
+				<span className="glyphicon glyphicon-search"></span>
 				<form onSubmit={this.handleSubmit}>
 					<input className="search-bar" ref="search" type="text" onChange={this.handleChange} />
 				</form>

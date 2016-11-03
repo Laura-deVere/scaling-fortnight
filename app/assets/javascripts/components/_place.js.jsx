@@ -14,12 +14,12 @@ var Place = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div>	
+				<img src={`https://source.unsplash.com/200x200/?${this.props.place.location}`}/>
 				<p>{this.props.place.location}                          
 					<span onClick={this.handleUpdate} className="glyphicon glyphicon-star-empty visited"></span>
 					<span onClick={this.props.handleDelete.bind(this.props.place.id)} className="glyphicon glyphicon-remove-circle visited"></span>
-				</p>	
-				<img src={`https://source.unsplash.com/200x200/?${this.props.place.location}`}/>
+				</p>
 			</div>
 		)
 	}
